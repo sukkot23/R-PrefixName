@@ -7,7 +7,7 @@ First Custom Order Project
 </br>
 
 ```
-칭호 
+칭호 플러그인
 
   의뢰인 : ___Moon
 제작기간 : 2020.10.02 ~ 2020.10.05
