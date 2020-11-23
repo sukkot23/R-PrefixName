@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.server.ServerLoadEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -30,8 +31,14 @@ public class EventDataManager implements Listener
         Reference.playerList.put(player, Objects.requireNonNull(Reference.getDataConfig(uuid).getString("title")).replaceAll("&", "§"));
         Reference.playerTitleChannel.put(player, Reference.getDataConfig(uuid).getBoolean("viewMod"));
 
-        Reference.onReloadNameTeam(player);
-        Reference.setPlayerScoreBoard(player);
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Reference.onReloadNameTeam(player);
+                Reference.setPlayerScoreBoard(player);
+            }
+        }.runTaskLaterAsynchronously(Reference.PLUGIN, 20L);
     }
 
     @EventHandler

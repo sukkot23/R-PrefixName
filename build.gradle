@@ -3,7 +3,7 @@ plugins {
     id 'kr.entree.spigradle' version '2.2.3'
 }
 
-def plVersion = '1.4.2'
+def plVersion = '1.4.3'
 
 group 'com.flora.prefix'
 version plVersion
